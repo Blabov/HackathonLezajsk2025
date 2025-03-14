@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = rng.randi_range(-150,150)
 			velocity.y = -600
 			$LifeTimer.start(3)
-		if position.x > 0 and !called:
+		if position.x > 0 and !called and !has_defect:
 			called = true
 			break_with_chance(0.10)
 	if state == states.FALLING:

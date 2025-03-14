@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds8hmik5aexdu"]
+[gd_scene load_steps=14 format=3 uid="uid://ds8hmik5aexdu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w6bej"]
 [ext_resource type="PackedScene" uid="uid://d0d4vabrdvr6i" path="res://scenes/game_over_screen.tscn" id="2_jdn5u"]
+[ext_resource type="AudioStream" uid="uid://brrgowegkp7xl" path="res://audio/bialy_mis.MP3" id="2_lvbs7"]
 [ext_resource type="PackedScene" uid="uid://b8fiaonygdcip" path="res://scenes/gui.tscn" id="2_vk4lm"]
 [ext_resource type="Script" path="res://scripts/belt.gd" id="3_75j32"]
 [ext_resource type="Texture2D" uid="uid://bl83ineamp8c0" path="res://textures/belt.png" id="3_83anh"]
@@ -18,6 +19,11 @@ size = Vector2(45, 118)
 [node name="Game" type="Node2D"]
 z_index = -1
 script = ExtResource("1_w6bej")
+
+[node name="BialyMis" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lvbs7")
+autoplay = true
+parameters/looping = true
 
 [node name="GameOverScreen" parent="." instance=ExtResource("2_jdn5u")]
 process_mode = 3
@@ -103,9 +109,58 @@ theme_override_colors/font_color = Color(0, 0.803263, 0, 1)
 theme_override_fonts/font = ExtResource("7_pqnxp")
 theme_override_font_sizes/font_size = 16
 text = "
-test"
+"
 horizontal_alignment = 2
 autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Board"]
+offset_left = -80.0
+offset_top = -24.0
+offset_right = 80.0
+offset_bottom = 31.0
+
+[node name="Score" type="HBoxContainer" parent="Board/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Board/VBoxContainer/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.803263, 0, 1)
+theme_override_fonts/font = ExtResource("7_pqnxp")
+theme_override_font_sizes/font_size = 8
+text = "Score:
+"
+
+[node name="Score" type="Label" parent="Board/VBoxContainer/Score"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.803263, 0, 1)
+theme_override_fonts/font = ExtResource("7_pqnxp")
+theme_override_font_sizes/font_size = 16
+text = "
+"
+horizontal_alignment = 2
+
+[node name="HighScore" type="HBoxContainer" parent="Board/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HighScoreLabel" type="Label" parent="Board/VBoxContainer/HighScore"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.803263, 0, 1)
+theme_override_fonts/font = ExtResource("7_pqnxp")
+theme_override_font_sizes/font_size = 8
+text = "HighScore:
+"
+
+[node name="HighScore" type="Label" parent="Board/VBoxContainer/HighScore"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.803263, 0, 1)
+theme_override_fonts/font = ExtResource("7_pqnxp")
+theme_override_font_sizes/font_size = 16
+text = "
+"
+horizontal_alignment = 2
 
 [connection signal="timeout" from="Timers/BottleTimer" to="." method="_on_bottle_timer_timeout"]
 [connection signal="body_entered" from="DeliveryPlace" to="." method="_on_delivery_place_body_entered"]

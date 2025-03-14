@@ -36,4 +36,4 @@ func damage_player(amount):
 	$Gui.set_visible_health(player_health)
 
 func update_score_visibility() -> void:
-	$Board/Label.text = str(GlobalVariables.score)
+	$Board/VBoxContainer/Score/Score.text = str(GlobalVariables.score)
