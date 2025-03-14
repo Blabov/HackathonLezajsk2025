@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds8hmik5aexdu"]
+[gd_scene load_steps=9 format=3 uid="uid://ds8hmik5aexdu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w6bej"]
 [ext_resource type="PackedScene" uid="uid://d0d4vabrdvr6i" path="res://scenes/game_over_screen.tscn" id="2_jdn5u"]
 [ext_resource type="PackedScene" uid="uid://b8fiaonygdcip" path="res://scenes/gui.tscn" id="2_vk4lm"]
 [ext_resource type="Script" path="res://scenes/belt.gd" id="3_75j32"]
 [ext_resource type="Texture2D" uid="uid://bl83ineamp8c0" path="res://textures/belt.png" id="3_83anh"]
+[ext_resource type="Texture2D" uid="uid://cf8gplu3oesk0" path="res://textures/scoreboard.png" id="6_6jxyv"]
+[ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="7_pqnxp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qoiju"]
 size = Vector2(45, 118)
@@ -40,6 +42,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_qoiju")
 
 [node name="Belt" type="CharacterBody2D" parent="."]
+position = Vector2(-800, 0)
 script = ExtResource("3_75j32")
 
 [node name="BeltSprite" type="Sprite2D" parent="Belt"]
@@ -51,6 +54,23 @@ texture = ExtResource("3_83anh")
 
 [node name="BackTimer" type="Timer" parent="Belt"]
 autostart = true
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(197, -235)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_6jxyv")
+
+[node name="Label" type="Label" parent="Board"]
+offset_left = -80.0
+offset_top = -26.0
+offset_right = 80.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("7_pqnxp")
+theme_override_font_sizes/font_size = 16
+text = "
+test"
+horizontal_alignment = 2
+autowrap_mode = 2
 
 [connection signal="timeout" from="BottleTimer" to="." method="_on_bottle_timer_timeout"]
 [connection signal="body_entered" from="DeliveryPlace" to="." method="_on_delivery_place_body_entered"]

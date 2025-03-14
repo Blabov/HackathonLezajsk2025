@@ -31,7 +31,7 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("2_mada7")
 theme_override_font_sizes/font_size = 70
-text = "Play"
+text = "PLAY"
 flat = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
