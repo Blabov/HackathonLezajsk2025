@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8fiaonygdcip"]
+[gd_scene load_steps=3 format=3 uid="uid://b8fiaonygdcip"]
 
 [ext_resource type="Texture2D" uid="uid://7ag3ia4ts68w" path="res://textures/bottle.webp" id="1_1u5tc"]
+[ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwrn5"]
 
 [node name="Gui" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(2, 2)
+script = ExtResource("1_xwrn5")
 
 [node name="Health" type="HBoxContainer" parent="."]
 layout_mode = 1
