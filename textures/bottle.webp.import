@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwi34ekpupiyu"
-path="res://.godot/imported/defect1.png-bb67c34fabc1673add57bc11c2d2f77b.ctex"
+uid="uid://7ag3ia4ts68w"
+path="res://.godot/imported/bottle.webp-6812e22f25dcff9ad5c47f1a74f32899.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/defect1.png"
-dest_files=["res://.godot/imported/defect1.png-bb67c34fabc1673add57bc11c2d2f77b.ctex"]
+source_file="res://textures/bottle.webp"
+dest_files=["res://.godot/imported/bottle.webp-6812e22f25dcff9ad5c47f1a74f32899.ctex"]
 
 [params]
 

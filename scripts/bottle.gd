@@ -5,6 +5,7 @@ extends CharacterBody2D
 var speed := 100
 var state
 var cursor_on_object := false
+var health := 3
 
 var rng = RandomNumberGenerator.new()
 
@@ -32,7 +33,7 @@ func _physics_process(delta: float) -> void:
 
 func randomize_sprite() -> void:
 	if rng.randf() < 0.33:
-		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,2)) + ".png")
+		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,4)) + ".png")
 	
 
 func _on_mouse_shape_entered(shape_idx: int) -> void:

@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds8hmik5aexdu"]
+[gd_scene load_steps=4 format=3 uid="uid://ds8hmik5aexdu"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_w6bej"]
+[ext_resource type="PackedScene" uid="uid://b8fiaonygdcip" path="res://scenes/gui.tscn" id="2_vk4lm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qoiju"]
 size = Vector2(45, 118)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_w6bej")
+
+[node name="Gui" parent="." instance=ExtResource("2_vk4lm")]
+offset_left = -490.0
+offset_top = 131.0
+offset_right = -490.0
+offset_bottom = 131.0
 
 [node name="Bottles" type="Node2D" parent="."]
 

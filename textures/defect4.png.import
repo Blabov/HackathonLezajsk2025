@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwi34ekpupiyu"
-path="res://.godot/imported/defect1.png-bb67c34fabc1673add57bc11c2d2f77b.ctex"
+uid="uid://bv4ibtrck0ybi"
+path="res://.godot/imported/defect4.png-aca2ee0a0181a8eadf004125e34df62f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/defect1.png"
-dest_files=["res://.godot/imported/defect1.png-bb67c34fabc1673add57bc11c2d2f77b.ctex"]
+source_file="res://textures/defect4.png"
+dest_files=["res://.godot/imported/defect4.png-aca2ee0a0181a8eadf004125e34df62f.ctex"]
 
 [params]
 
