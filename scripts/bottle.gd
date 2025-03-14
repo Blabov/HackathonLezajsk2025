@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var game := get_node("/root/Game")
 
-var sticker = preload("res://scenes/falling_sticker.tscn")
+var sticker_scene = preload("res://scenes/falling_sticker.tscn")
 
 var speed := GlobalVariables.speed
 var state
@@ -53,6 +53,7 @@ func break_with_chance(chance) -> void:
 	if rng.randf() < chance:
 		has_defect = true
 		sprite.texture = load("res://textures/defect0.png")
+		var sticker = 
 	
 
 func _on_mouse_shape_entered(_shape_idx: int) -> void:

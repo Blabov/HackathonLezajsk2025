@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwmabiwxpmkjt"]
+[gd_scene load_steps=6 format=3 uid="uid://dwmabiwxpmkjt"]
 
 [ext_resource type="Texture2D" uid="uid://ceiis3ns0njw1" path="res://textures/sticker.png" id="1_co4en"]
+[ext_resource type="Script" path="res://scripts/falling_sticker.gd" id="2_qpn8p"]
 
 [sub_resource type="Animation" id="Animation_y10t4"]
 resource_name = "fall"
@@ -42,6 +43,7 @@ _data = {
 [node name="FallingSticker" type="Sprite2D"]
 scale = Vector2(3, 3)
 texture = ExtResource("1_co4en")
+script = ExtResource("2_qpn8p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
