@@ -11,10 +11,10 @@ size = Vector2(45, 118)
 script = ExtResource("1_w6bej")
 
 [node name="Gui" parent="." instance=ExtResource("2_vk4lm")]
-offset_left = -490.0
-offset_top = 131.0
-offset_right = -490.0
-offset_bottom = 131.0
+offset_left = -466.0
+offset_top = -292.0
+offset_right = -466.0
+offset_bottom = -292.0
 
 [node name="Bottles" type="Node2D" parent="."]
 
