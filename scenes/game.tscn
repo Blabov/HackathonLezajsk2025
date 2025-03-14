@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds8hmik5aexdu"]
+[gd_scene load_steps=11 format=3 uid="uid://ds8hmik5aexdu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w6bej"]
 [ext_resource type="PackedScene" uid="uid://d0d4vabrdvr6i" path="res://scenes/game_over_screen.tscn" id="2_jdn5u"]
 [ext_resource type="PackedScene" uid="uid://b8fiaonygdcip" path="res://scenes/gui.tscn" id="2_vk4lm"]
 [ext_resource type="Script" path="res://scenes/belt.gd" id="3_75j32"]
 [ext_resource type="Texture2D" uid="uid://bl83ineamp8c0" path="res://textures/belt.png" id="3_83anh"]
+[ext_resource type="Texture2D" uid="uid://b5wth36ay85os" path="res://textures/bg.png" id="5_ej0eh"]
 [ext_resource type="Texture2D" uid="uid://cf8gplu3oesk0" path="res://textures/scoreboard.png" id="6_6jxyv"]
 [ext_resource type="Texture2D" uid="uid://b2lc1i3ttb6fn" path="res://textures/floor.png" id="6_7w8u4"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="7_pqnxp"]
@@ -60,6 +61,12 @@ autostart = true
 position = Vector2(-64, 159)
 scale = Vector2(3, 3)
 texture = ExtResource("6_7w8u4")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-19, -54)
+scale = Vector2(3, 3)
+texture = ExtResource("5_ej0eh")
 
 [node name="Board" type="Sprite2D" parent="."]
 position = Vector2(197, -235)
