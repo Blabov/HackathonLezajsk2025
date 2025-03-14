@@ -39,12 +39,13 @@ func _physics_process(delta: float) -> void:
 			$LifeTimer.start(3)
 	if state == states.FALLING:
 		velocity += get_gravity() * 2 * delta
+	speed = GlobalVariables.speed
 	move_and_slide()
 
-func _on_mouse_shape_entered(shape_idx: int) -> void:
+func _on_mouse_shape_entered(_shape_idx: int) -> void:
 	cursor_on_object = true
 
-func _on_mouse_shape_exited(shape_idx: int) -> void:
+func _on_mouse_shape_exited(_shape_idx: int) -> void:
 	cursor_on_object = false
 
 func _on_life_timer_timeout() -> void:
