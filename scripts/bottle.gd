@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
+#@onready var game := get_node()
 
 var speed := 100
 var state
 var cursor_on_object := false
-var health := 3
+var has_defect := false
 
 var rng = RandomNumberGenerator.new()
+
+signal damage_player
 
 enum states{
 	MOVING,
@@ -16,12 +19,16 @@ enum states{
 
 func _ready() -> void:
 	state = states.MOVING
-	randomize_sprite()
+	if rng.randf() < 0.33:
+		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,4)) + ".png")
+		has_defect = true
 
 func _physics_process(delta: float) -> void:
 	if state == states.MOVING:
 		velocity.x = speed
 		if Input.is_action_just_pressed("Click") and cursor_on_object:
+			if !has_defect:
+				damage_player.emit()
 			$CollisionShape2D.disabled = true
 			state = states.FALLING
 			velocity.x = rng.randi_range(-150,150)
@@ -30,11 +37,6 @@ func _physics_process(delta: float) -> void:
 	if state == states.FALLING:
 		velocity += get_gravity() * 2 * delta
 	move_and_slide()
-
-func randomize_sprite() -> void:
-	if rng.randf() < 0.33:
-		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,4)) + ".png")
-	
 
 func _on_mouse_shape_entered(shape_idx: int) -> void:
 	cursor_on_object = true
