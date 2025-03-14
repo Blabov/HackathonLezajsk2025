@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://d0d4vabrdvr6i"]
+[gd_scene load_steps=3 format=3 uid="uid://d0d4vabrdvr6i"]
+
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_5me73"]
+[ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="1_jmq8h"]
 
 [node name="GameOverScreen" type="CanvasLayer"]
+script = ExtResource("1_5me73")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -10,16 +14,38 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.27451)
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -367.5
+offset_top = -59.0
+offset_right = 367.5
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jmq8h")
+theme_override_font_sizes/font_size = 70
 text = "YOU GOT FIRED"
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jmq8h")
+theme_override_font_sizes/font_size = 50
+text = "TRY AGAIN"
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jmq8h")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+flat = true
+
+[connection signal="button_up" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]

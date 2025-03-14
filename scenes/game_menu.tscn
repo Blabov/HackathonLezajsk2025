@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://v4b3pcp02m25"]
+[gd_scene load_steps=3 format=3 uid="uid://v4b3pcp02m25"]
 
 [ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_s1gbd"]
+[ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="2_mada7"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -24,6 +25,7 @@ offset_right = 155.5
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_mada7")
 theme_override_font_sizes/font_size = 70
 text = "Play"
 
