@@ -39,9 +39,13 @@ zoom = Vector2(2, 2)
 [node name="BottlesSpawnPosition" type="Marker2D" parent="."]
 position = Vector2(-553, 21)
 
-[node name="BottleTimer" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="BottleTimer" type="Timer" parent="Timers"]
 one_shot = true
 autostart = true
+
+[node name="BeltShakeTimer" type="Timer" parent="Timers"]
 
 [node name="DeliveryPlace" type="Area2D" parent="."]
 position = Vector2(571, 0)
@@ -100,5 +104,5 @@ test"
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[connection signal="timeout" from="BottleTimer" to="." method="_on_bottle_timer_timeout"]
+[connection signal="timeout" from="Timers/BottleTimer" to="." method="_on_bottle_timer_timeout"]
 [connection signal="body_entered" from="DeliveryPlace" to="." method="_on_delivery_place_body_entered"]
