@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var sprite: Sprite2D = $Sprite2D
+
 var speed := 100
 var state
 var cursor_on_object := false
@@ -13,6 +15,7 @@ enum states{
 
 func _ready() -> void:
 	state = states.MOVING
+	randomize_sprite()
 
 func _physics_process(delta: float) -> void:
 	if state == states.MOVING:
@@ -27,6 +30,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * 2 * delta
 	move_and_slide()
 
+func randomize_sprite() -> void:
+	if rng.randf() < 0.33:
+		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,2)) + ".png")
+	
 
 func _on_mouse_shape_entered(shape_idx: int) -> void:
 	cursor_on_object = true

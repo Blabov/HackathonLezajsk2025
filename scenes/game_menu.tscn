@@ -26,3 +26,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 70
 text = "Graj"
+
+[connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]

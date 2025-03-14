@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hackathon2025Lezajsk"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/game_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,9 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=3
 window/size/initial_position=Vector2i(500, 500)
 window/size/always_on_top=true
+window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
 [input]
@@ -35,3 +36,8 @@ Click={
 [layer_names]
 
 2d_physics/layer_1="Bottles"
+2d_physics/layer_2="Devilery"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
