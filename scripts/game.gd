@@ -3,6 +3,10 @@ extends Node2D
 var player_health := 3
 var bottle_scene = preload("res://scenes/bottle.tscn")
 
+func _ready() -> void:
+	GlobalVariables.score = 0
+	GlobalVariables.speed = 100
+
 func _process(delta: float) -> void:
 	if player_health <= 0:
 		$GameOverScreen.visible = true

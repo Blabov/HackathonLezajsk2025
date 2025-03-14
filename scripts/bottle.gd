@@ -18,8 +18,6 @@ enum states{
 }
 
 func _ready() -> void:
-	GlobalVariables.score = 0
-	GlobalVariables.speed = 100
 	state = states.MOVING
 	self.damage_player.connect(game._on_bottle_damage_player)
 	if rng.randf() < 0.33:
