@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds8hmik5aexdu"]
+[gd_scene load_steps=7 format=3 uid="uid://ds8hmik5aexdu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w6bej"]
+[ext_resource type="PackedScene" uid="uid://d0d4vabrdvr6i" path="res://scenes/game_over_screen.tscn" id="2_jdn5u"]
 [ext_resource type="PackedScene" uid="uid://b8fiaonygdcip" path="res://scenes/gui.tscn" id="2_vk4lm"]
+[ext_resource type="Script" path="res://scenes/belt.gd" id="3_75j32"]
 [ext_resource type="Texture2D" uid="uid://bl83ineamp8c0" path="res://textures/belt.png" id="3_83anh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qoiju"]
@@ -10,11 +12,11 @@ size = Vector2(45, 118)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_w6bej")
 
+[node name="GameOverScreen" parent="." instance=ExtResource("2_jdn5u")]
+layer = 2
+visible = false
+
 [node name="Gui" parent="." instance=ExtResource("2_vk4lm")]
-offset_left = -466.0
-offset_top = -292.0
-offset_right = -466.0
-offset_bottom = -292.0
 
 [node name="Bottles" type="Node2D" parent="."]
 
@@ -37,12 +39,19 @@ collision_layer = 2
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_qoiju")
 
-[node name="Belt" type="Sprite2D" parent="."]
+[node name="Belt" type="CharacterBody2D" parent="."]
+script = ExtResource("3_75j32")
+
+[node name="BeltSprite" type="Sprite2D" parent="Belt"]
 z_index = -1
 z_as_relative = false
-position = Vector2(0, 41)
+position = Vector2(0, 42)
 scale = Vector2(3, 3)
 texture = ExtResource("3_83anh")
 
+[node name="BackTimer" type="Timer" parent="Belt"]
+autostart = true
+
 [connection signal="timeout" from="BottleTimer" to="." method="_on_bottle_timer_timeout"]
 [connection signal="body_entered" from="DeliveryPlace" to="." method="_on_delivery_place_body_entered"]
+[connection signal="timeout" from="Belt/BackTimer" to="Belt" method="_on_back_timer_timeout"]

@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
-#@onready var game := get_node()
+@onready var game := get_node("/root/Game")
 
-var speed := 100
+var speed := GlobalVariables.speed
 var state
 var cursor_on_object := false
 var has_defect := false
@@ -19,9 +19,11 @@ enum states{
 
 func _ready() -> void:
 	state = states.MOVING
+	self.damage_player.connect(game._on_bottle_damage_player)
 	if rng.randf() < 0.33:
 		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,4)) + ".png")
 		has_defect = true
+
 
 func _physics_process(delta: float) -> void:
 	if state == states.MOVING:

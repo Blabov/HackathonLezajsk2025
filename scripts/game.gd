@@ -1,8 +1,11 @@
 extends Node2D
 
 var player_health := 3
-
 var bottle_scene = preload("res://scenes/bottle.tscn")
+
+func _process(delta: float) -> void:
+	if player_health <= 0:
+		$GameOverScreen.visible = true
 
 func _on_bottle_timer_timeout() -> void:
 	var bottle = bottle_scene.instantiate()
@@ -12,8 +15,13 @@ func _on_bottle_timer_timeout() -> void:
 	
 
 func _on_delivery_place_body_entered(body: Node2D) -> void:
+	if body.has_defect:
+		damage_player(1)
 	body.queue_free()
 
 func _on_bottle_damage_player() -> void:
-	player_health -= 1
+	damage_player(1)
+
+func damage_player(amount):
+	player_health -= amount
 	$Gui.set_visible_health(player_health)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnh1xv34qywic"
-path="res://.godot/imported/belt8.png-ad8e31ea080aec46d4c0b9b8d2901168.ctex"
+uid="uid://cf8gplu3oesk0"
+path="res://.godot/imported/scoreboard.png-da85eeb0ecaa0bd53f493143e82b01b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/belt8.png"
-dest_files=["res://.godot/imported/belt8.png-ad8e31ea080aec46d4c0b9b8d2901168.ctex"]
+source_file="res://textures/scoreboard.png"
+dest_files=["res://.godot/imported/scoreboard.png-da85eeb0ecaa0bd53f493143e82b01b5.ctex"]
 
 [params]
 

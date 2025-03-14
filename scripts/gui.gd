@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var health_texture = preload("res://textures/health.png")
 
