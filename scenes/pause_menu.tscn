@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="1_eccyy"]
 
 [node name="PauseMenu" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_5iylw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -49,3 +50,6 @@ theme_override_fonts/font = ExtResource("1_eccyy")
 theme_override_font_sizes/font_size = 40
 text = "QUIT"
 flat = true
+
+[connection signal="button_up" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]

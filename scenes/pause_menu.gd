@@ -1,11 +1,21 @@
 extends CanvasLayer
 
+var paused := false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Pause") and paused == false:
+		self.visible = true
+		get_tree().paused = true
+		paused = true
+	elif Input.is_action_just_pressed("Pause") and paused == true:
+		self.visible = false
+		get_tree().paused = false
+		paused = false
 
+func _on_resume_button_button_up() -> void:
+	self.visible = false
+	get_tree().paused = false
+	paused = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_quit_button_button_up() -> void:
+	get_tree().quit()
