@@ -62,9 +62,9 @@ texture = ExtResource("6_6jxyv")
 
 [node name="Label" type="Label" parent="Board"]
 offset_left = -80.0
-offset_top = -26.0
+offset_top = -24.0
 offset_right = 80.0
-offset_bottom = 34.0
+offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("7_pqnxp")
 theme_override_font_sizes/font_size = 16
 text = "
