@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://ehm21884rjxa"]
+[gd_scene load_steps=3 format=3 uid="uid://ehm21884rjxa"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_5iylw"]
+[ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="1_eccyy"]
 
 [node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_5iylw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -24,5 +28,24 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Paused" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_eccyy")
+theme_override_font_sizes/font_size = 60
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_eccyy")
+theme_override_font_sizes/font_size = 40
+text = "RESUME"
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_eccyy")
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
+flat = true
