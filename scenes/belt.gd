@@ -8,4 +8,4 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _on_back_timer_timeout() -> void:
-	position.x -= speed * 0.96
+	position.x -= speed * 10

@@ -46,8 +46,9 @@ grow_vertical = 2
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("2_mada7")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 100
 text = "PLAY"
 flat = true
 
@@ -55,8 +56,10 @@ flat = true
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("2_mada7")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 100
 text = "QUIT"
 flat = true
 

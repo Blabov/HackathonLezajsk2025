@@ -55,6 +55,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_83anh")
 
 [node name="BackTimer" type="Timer" parent="Belt"]
+wait_time = 10.0
 autostart = true
 
 [node name="Floor" type="Sprite2D" parent="."]
