@@ -19,11 +19,11 @@ func _on_bottle_timer_timeout() -> void:
 	bottle.global_position = $BottlesSpawnPosition.global_position
 	if GlobalVariables.score >= 90:
 		$BottleTimer.start(0.3)
-	else: $BottleTimer.start(1 - (float(GlobalVariables.score) / 100))
+	else: $BottleTimer.start(1.0 - (float(GlobalVariables.score) / 100.0))
 	
 
 func _on_delivery_place_body_entered(body: Node2D) -> void:
-	if body.has_defect:
+	if body.has_defect and player_health > 0:
 		damage_player(1)
 		$ScreenEffect.damage_effect()
 	body.queue_free()
