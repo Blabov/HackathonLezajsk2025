@@ -40,11 +40,11 @@ func _physics_process(delta: float) -> void:
 			velocity.x = rng.randi_range(-150,150)
 			velocity.y = -600
 			$LifeTimer.start(3)
+		if position.x > 0 and !called:
+			called = true
+			break_with_chance(0.10)
 	if state == states.FALLING:
 		velocity += get_gravity() * 2 * delta
-	if position.x > 0 and !called:
-		called = true
-		break_with_chance(0.10)
 		
 	speed = GlobalVariables.speed
 	move_and_slide()
@@ -53,7 +53,8 @@ func break_with_chance(chance) -> void:
 	if rng.randf() < chance:
 		has_defect = true
 		sprite.texture = load("res://textures/defect0.png")
-		var sticker = 
+		var sticker = sticker_scene.instantiate()
+		get_node("/root/Game/Effects").add_child(sticker)
 	
 
 func _on_mouse_shape_entered(_shape_idx: int) -> void:

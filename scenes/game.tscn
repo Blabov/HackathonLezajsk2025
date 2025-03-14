@@ -16,6 +16,7 @@
 size = Vector2(45, 118)
 
 [node name="Game" type="Node2D"]
+z_index = -1
 script = ExtResource("1_w6bej")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("2_jdn5u")]
@@ -33,6 +34,7 @@ process_mode = 3
 [node name="Bottles" type="Node2D" parent="."]
 
 [node name="Effects" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -40)
