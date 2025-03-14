@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds8hmik5aexdu"]
+[gd_scene load_steps=13 format=3 uid="uid://ds8hmik5aexdu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w6bej"]
 [ext_resource type="PackedScene" uid="uid://d0d4vabrdvr6i" path="res://scenes/game_over_screen.tscn" id="2_jdn5u"]
 [ext_resource type="PackedScene" uid="uid://b8fiaonygdcip" path="res://scenes/gui.tscn" id="2_vk4lm"]
-[ext_resource type="Script" path="res://scenes/belt.gd" id="3_75j32"]
+[ext_resource type="Script" path="res://scripts/belt.gd" id="3_75j32"]
 [ext_resource type="Texture2D" uid="uid://bl83ineamp8c0" path="res://textures/belt.png" id="3_83anh"]
 [ext_resource type="PackedScene" uid="uid://ehm21884rjxa" path="res://scenes/pause_menu.tscn" id="4_k512c"]
 [ext_resource type="Texture2D" uid="uid://b5wth36ay85os" path="res://textures/bg.png" id="5_ej0eh"]
+[ext_resource type="PackedScene" uid="uid://bnbl0gthkos8i" path="res://scenes/screen_effect.tscn" id="5_wnk1f"]
 [ext_resource type="Texture2D" uid="uid://cf8gplu3oesk0" path="res://textures/scoreboard.png" id="6_6jxyv"]
 [ext_resource type="Texture2D" uid="uid://b2lc1i3ttb6fn" path="res://textures/floor.png" id="6_7w8u4"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="7_pqnxp"]
@@ -18,6 +19,7 @@ size = Vector2(45, 118)
 script = ExtResource("1_w6bej")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("2_jdn5u")]
+process_mode = 3
 layer = 2
 visible = false
 
@@ -25,6 +27,8 @@ visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_k512c")]
 process_mode = 3
+
+[node name="ScreenEffect" parent="." instance=ExtResource("5_wnk1f")]
 
 [node name="Bottles" type="Node2D" parent="."]
 
