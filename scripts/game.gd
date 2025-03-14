@@ -1,6 +1,5 @@
 extends Node2D
 
-var score := 0
 var player_health := 3
 var bottle_scene = preload("res://scenes/bottle.tscn")
 
@@ -19,7 +18,6 @@ func _on_bottle_timer_timeout() -> void:
 func _on_delivery_place_body_entered(body: Node2D) -> void:
 	if body.has_defect:
 		damage_player(1)
-	else: score += 1
 	body.queue_free()
 
 func _on_bottle_damage_player() -> void:
@@ -30,4 +28,4 @@ func damage_player(amount):
 	$Gui.set_visible_health(player_health)
 
 func update_score_visibility() -> void:
-	$Board/Label.text = str(score)
+	$Board/Label.text = str(GlobalVariables.score)

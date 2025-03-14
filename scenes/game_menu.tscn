@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://v4b3pcp02m25"]
+[gd_scene load_steps=4 format=3 uid="uid://v4b3pcp02m25"]
 
 [ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_s1gbd"]
+[ext_resource type="Texture2D" uid="uid://bcxaxc3p2edu1" path="res://textures/piwomenu.png" id="2_4k32k"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="2_mada7"]
 
 [node name="GameMenu" type="Control"]
@@ -11,6 +12,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s1gbd")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_4k32k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

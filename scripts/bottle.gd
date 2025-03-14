@@ -29,8 +29,9 @@ func _physics_process(delta: float) -> void:
 	if state == states.MOVING:
 		velocity.x = speed
 		if Input.is_action_just_pressed("Click") and cursor_on_object:
-			if !has_defect:
-				damage_player.emit()
+			if has_defect:
+				GlobalVariables.score += 1
+			else: damage_player.emit()
 			$CollisionShape2D.disabled = true
 			state = states.FALLING
 			velocity.x = rng.randi_range(-150,150)
