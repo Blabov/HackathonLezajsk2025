@@ -45,9 +45,6 @@ position = Vector2(-553, 21)
 one_shot = true
 autostart = true
 
-[node name="BeltShakeTimer" type="Timer" parent="Timers"]
-one_shot = true
-
 [node name="DeliveryPlace" type="Area2D" parent="."]
 position = Vector2(571, 0)
 collision_layer = 2
@@ -57,7 +54,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_qoiju")
 
 [node name="Belt" type="CharacterBody2D" parent="."]
-position = Vector2(-888, 52)
+position = Vector2(2042, 52)
 script = ExtResource("3_75j32")
 
 [node name="BeltSprite" type="Sprite2D" parent="Belt"]
@@ -67,7 +64,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_83anh")
 
 [node name="Belt2" type="CharacterBody2D" parent="."]
-position = Vector2(-3817, 52)
+position = Vector2(-888, 52)
 script = ExtResource("3_75j32")
 
 [node name="BeltSprite" type="Sprite2D" parent="Belt2"]
@@ -77,6 +74,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_83anh")
 
 [node name="Floor" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(-64, 159)
 scale = Vector2(3, 3)
 texture = ExtResource("6_7w8u4")
@@ -106,5 +104,4 @@ horizontal_alignment = 2
 autowrap_mode = 2
 
 [connection signal="timeout" from="Timers/BottleTimer" to="." method="_on_bottle_timer_timeout"]
-[connection signal="timeout" from="Timers/BeltShakeTimer" to="Belt" method="_on_belt_shake_timer_timeout"]
 [connection signal="body_entered" from="DeliveryPlace" to="." method="_on_delivery_place_body_entered"]

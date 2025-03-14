@@ -8,6 +8,7 @@ var state
 var cursor_on_object := false
 var has_defect := false
 
+var called := false
 var rng = RandomNumberGenerator.new()
 
 signal damage_player
@@ -39,8 +40,18 @@ func _physics_process(delta: float) -> void:
 			$LifeTimer.start(3)
 	if state == states.FALLING:
 		velocity += get_gravity() * 2 * delta
+	if position.x > 0 and !called:
+		called = true
+		break_with_chance(0.10)
+		
 	speed = GlobalVariables.speed
 	move_and_slide()
+
+func break_with_chance(chance) -> void:
+	if rng.randf() < chance:
+		has_defect = true
+		sprite.texture = load("res://textures/defect0.png")
+	
 
 func _on_mouse_shape_entered(_shape_idx: int) -> void:
 	cursor_on_object = true
