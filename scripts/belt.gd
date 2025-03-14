@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@onready var belt_shake_timer: Timer = $"../Timers/BeltShakeTimer"
-
 var speed = GlobalVariables.speed
 var rng = RandomNumberGenerator.new()
 

@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var game := get_node("/root/Game")
 
+var sticker = preload("res://scenes/falling_sticker.tscn")
+
 var speed := GlobalVariables.speed
 var state
 var cursor_on_object := false
