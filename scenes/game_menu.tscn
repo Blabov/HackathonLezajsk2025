@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://v4b3pcp02m25"]
+[gd_scene load_steps=5 format=3 uid="uid://v4b3pcp02m25"]
 
 [ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_s1gbd"]
 [ext_resource type="Texture2D" uid="uid://bcxaxc3p2edu1" path="res://textures/piwomenu.png" id="2_4k32k"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="2_mada7"]
+[ext_resource type="AudioStream" uid="uid://cuh3hhkd822fd" path="res://audio/jarzebina.MP3" id="4_ny0wb"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -62,6 +63,10 @@ theme_override_fonts/font = ExtResource("2_mada7")
 theme_override_font_sizes/font_size = 100
 text = "QUIT"
 flat = true
+
+[node name="Jarzebina" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ny0wb")
+autoplay = true
 
 [connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
