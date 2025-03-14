@@ -17,7 +17,7 @@ func _on_bottle_timer_timeout() -> void:
 	var bottle = bottle_scene.instantiate()
 	$Bottles.add_child(bottle)
 	bottle.global_position = $BottlesSpawnPosition.global_position
-	if GlobalVariables.score <= 100:
+	if GlobalVariables.score >= 100:
 		$BottleTimer.start(1 - GlobalVariables.score / 10)
 	else: $BottleTimer.start(0.1)
 	
