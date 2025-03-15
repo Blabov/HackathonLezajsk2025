@@ -66,6 +66,7 @@ flat = true
 
 [node name="Jarzebina" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ny0wb")
+volume_db = 3.0
 autoplay = true
 
 [connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]

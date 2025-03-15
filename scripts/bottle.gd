@@ -26,7 +26,7 @@ func _ready() -> void:
 	if rng.randf() < 0.33:
 		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,4)) + ".png")
 		has_defect = true
-
+	$AudioStreamPlayer2D.stream = load("res://audio/bottle" + str(rng.randi_range(1,3)) + ".mp3")
 
 func _physics_process(delta: float) -> void:
 	if state == states.MOVING:
@@ -40,9 +40,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = rng.randi_range(-150,150)
 			velocity.y = -600
 			$LifeTimer.start(3)
+			$AudioStreamPlayer2D.play()
 		if position.x > 0 and !called and !has_defect:
 			called = true
-			break_with_chance(0.10)
+			break_with_chance(0.1)
 	if state == states.FALLING:
 		velocity += get_gravity() * 2 * delta
 		
