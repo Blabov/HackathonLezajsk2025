@@ -42,6 +42,14 @@ theme_override_font_sizes/font_size = 50
 text = "TRY AGAIN"
 flat = true
 
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_jmq8h")
+theme_override_font_sizes/font_size = 40
+text = "MAIN MENU"
+flat = true
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
@@ -52,4 +60,5 @@ text = "QUIT"
 flat = true
 
 [connection signal="button_up" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
