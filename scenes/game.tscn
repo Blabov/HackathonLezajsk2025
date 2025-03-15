@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ds8hmik5aexdu"]
+[gd_scene load_steps=15 format=3 uid="uid://ds8hmik5aexdu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w6bej"]
 [ext_resource type="PackedScene" uid="uid://d0d4vabrdvr6i" path="res://scenes/game_over_screen.tscn" id="2_jdn5u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cf8gplu3oesk0" path="res://textures/scoreboard.png" id="6_6jxyv"]
 [ext_resource type="Texture2D" uid="uid://b2lc1i3ttb6fn" path="res://textures/floor.png" id="6_7w8u4"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="7_pqnxp"]
+[ext_resource type="Texture2D" uid="uid://ceo0dgdhp3454" path="res://textures/lezajsk.png" id="9_38dbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qoiju"]
 size = Vector2(45, 118)
@@ -83,6 +84,11 @@ z_index = -1
 z_as_relative = false
 scale = Vector2(3, 3)
 texture = ExtResource("3_83anh")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(-79, -258)
+scale = Vector2(4, 4)
+texture = ExtResource("9_38dbm")
 
 [node name="Floor" type="Sprite2D" parent="."]
 z_index = -2
