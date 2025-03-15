@@ -6,9 +6,12 @@ var bottle_scene = preload("res://scenes/bottle.tscn")
 func _ready() -> void:
 	GlobalVariables.score = 0
 	GlobalVariables.speed = 100
+	if GlobalVariables.high_score > 0:
+		$Board/VBoxContainer/HighScore.visible = true
 
 func _process(_delta: float) -> void:
 	if player_health <= 0:
+		GlobalVariables.high_score = GlobalVariables.score
 		$GameOverScreen.visible = true
 	GlobalVariables.speed = 100 + (100 * (0.30 * floor(GlobalVariables.score/10)))
 	update_score_visibility()
@@ -37,3 +40,4 @@ func damage_player(amount):
 
 func update_score_visibility() -> void:
 	$Board/VBoxContainer/Score/Score.text = str(GlobalVariables.score)
+	$Board/VBoxContainer/HighScore/HighScore.text = str(GlobalVariables.high_score)

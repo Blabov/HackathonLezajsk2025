@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://v4b3pcp02m25"]
 
 [ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_s1gbd"]
-[ext_resource type="Texture2D" uid="uid://bcxaxc3p2edu1" path="res://textures/piwomenu.png" id="2_4k32k"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="2_mada7"]
+[ext_resource type="Texture2D" uid="uid://lhrvk1017p4c" path="res://textures/piwo_logo.png" id="4_5b0vy"]
 [ext_resource type="AudioStream" uid="uid://cuh3hhkd822fd" path="res://audio/jarzebina.MP3" id="4_ny0wb"]
 
 [node name="GameMenu" type="Control"]
@@ -14,13 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s1gbd")
 
-[node name="bg" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 360.0
-scale = Vector2(3, 3)
-texture = ExtResource("2_4k32k")
-
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -30,21 +23,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.27451)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -113.5
-offset_top = -63.0
-offset_right = 113.5
-offset_bottom = 63.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -196.0
+offset_right = 346.0
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 300
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_constants/outline_size = 25
@@ -53,7 +46,7 @@ theme_override_font_sizes/font_size = 100
 text = "PLAY"
 flat = true
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
@@ -69,5 +62,10 @@ stream = ExtResource("4_ny0wb")
 volume_db = 3.0
 autoplay = true
 
-[connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
-[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(263, 290)
+scale = Vector2(8, 8)
+texture = ExtResource("4_5b0vy")
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
