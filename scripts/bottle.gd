@@ -9,7 +9,7 @@ var speed := GlobalVariables.speed
 var state
 var cursor_on_object := false
 var has_defect := false
-var in_game_menu := true
+
 
 var called := false
 var rng = RandomNumberGenerator.new()
@@ -23,11 +23,12 @@ enum states{
 
 func _ready() -> void:
 	state = states.MOVING
-	if !in_game_menu:
+
+	if game != null:
 		self.damage_player.connect(game._on_bottle_damage_player)
-		if rng.randf() < 0.33:
-			sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,4)) + ".png")
-			has_defect = true
+	if rng.randf() < 0.33:
+		sprite.texture = load("res://textures/defect" + str(rng.randi_range(0,4)) + ".png")
+		has_defect = true
 	$AudioStreamPlayer2D.stream = load("res://audio/bottle" + str(rng.randi_range(1,3)) + ".mp3")
 
 func _physics_process(delta: float) -> void:
