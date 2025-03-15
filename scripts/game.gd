@@ -36,7 +36,7 @@ func _on_bottle_damage_player() -> void:
 
 func damage_player(amount):
 	player_health -= amount
-	$Gui.set_visible_health(player_health)
+	$Gui.set_visible_health(player_health, 3)
 
 func update_score_visibility() -> void:
 	$Board/VBoxContainer/Score/Score.text = str(GlobalVariables.score)
