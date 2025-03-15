@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://v4b3pcp02m25"]
+[gd_scene load_steps=10 format=3 uid="uid://v4b3pcp02m25"]
 
 [ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_s1gbd"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="2_mada7"]
 [ext_resource type="Texture2D" uid="uid://lhrvk1017p4c" path="res://textures/piwo_logo.png" id="4_5b0vy"]
 [ext_resource type="AudioStream" uid="uid://cuh3hhkd822fd" path="res://audio/jarzebina.MP3" id="4_ny0wb"]
 [ext_resource type="Texture2D" uid="uid://d3uvdvy6yvpsd" path="res://textures/piwo_napis.png" id="5_akl30"]
+[ext_resource type="Texture2D" uid="uid://b2lc1i3ttb6fn" path="res://textures/floor.png" id="6_8dwyc"]
+[ext_resource type="Texture2D" uid="uid://b5wth36ay85os" path="res://textures/bg.png" id="7_rxgd7"]
+[ext_resource type="Script" path="res://scripts/belt.gd" id="8_mj1nn"]
+[ext_resource type="Texture2D" uid="uid://bl83ineamp8c0" path="res://textures/belt.png" id="9_rtatn"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -15,8 +19,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s1gbd")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,21 +29,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.27451)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -196.0
-offset_right = 346.0
+offset_top = -476.0
+offset_right = 446.0
 grow_vertical = 0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_bottom = 280
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_constants/outline_size = 25
@@ -47,7 +51,7 @@ theme_override_font_sizes/font_size = 100
 text = "PLAY"
 flat = true
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
@@ -58,20 +62,66 @@ theme_override_font_sizes/font_size = 100
 text = "QUIT"
 flat = true
 
+[node name="PiwoLogo" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(263, 313)
+scale = Vector2(8, 8)
+texture = ExtResource("4_5b0vy")
+
+[node name="PiwoNapis" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1143, 241)
+scale = Vector2(12, 12)
+texture = ExtResource("5_akl30")
+
 [node name="Jarzebina" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ny0wb")
 volume_db = 3.0
 autoplay = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(263, 313)
-scale = Vector2(8, 8)
-texture = ExtResource("4_5b0vy")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -40)
+zoom = Vector2(2, 2)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1143, 241)
-scale = Vector2(12, 12)
-texture = ExtResource("5_akl30")
+[node name="Belt" type="CharacterBody2D" parent="."]
+position = Vector2(2042, 52)
+script = ExtResource("8_mj1nn")
 
-[connection signal="button_up" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[node name="BeltSprite" type="Sprite2D" parent="Belt"]
+z_index = -1
+z_as_relative = false
+scale = Vector2(3, 3)
+texture = ExtResource("9_rtatn")
+
+[node name="Belt2" type="CharacterBody2D" parent="."]
+position = Vector2(-888, 52)
+script = ExtResource("8_mj1nn")
+
+[node name="BeltSprite" type="Sprite2D" parent="Belt2"]
+z_index = -1
+z_as_relative = false
+scale = Vector2(3, 3)
+texture = ExtResource("9_rtatn")
+
+[node name="Floor" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-64, 159)
+scale = Vector2(3, 3)
+texture = ExtResource("6_8dwyc")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-19, -54)
+scale = Vector2(3, 3)
+texture = ExtResource("7_rxgd7")
+
+[node name="BottlesSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(-553, 21)
+
+[node name="BottleTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Bottles" type="Node2D" parent="."]
+
+[connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="timeout" from="BottleTimer" to="." method="_on_bottle_timer_timeout"]
