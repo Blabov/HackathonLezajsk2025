@@ -21,7 +21,7 @@ func _on_bottle_timer_timeout() -> void:
 	$Bottles.add_child(bottle)
 	bottle.global_position = $BottlesSpawnPosition.global_position
 	if GlobalVariables.score >= 90:
-		$Timers/BottleTimer.start(0.3)
+		$Timers/BottleTimer.start(0.5)
 	else: $Timers/BottleTimer.start(1.0 - (float(GlobalVariables.score) / 200.0))
 
 func _on_delivery_place_body_entered(body: Node2D) -> void:
