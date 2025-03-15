@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var game := get_node("/root/Game")
+@onready var game : Node 
 
 var sticker_scene = preload("res://scenes/falling_sticker.tscn")
 
@@ -22,6 +22,8 @@ enum states{
 }
 
 func _ready() -> void:
+	if get_node("/root/Game") != null:
+		game = get_node("/root/Game")
 	state = states.MOVING
 
 	if game != null:
@@ -58,7 +60,8 @@ func break_with_chance(chance) -> void:
 		has_defect = true
 		sprite.texture = load("res://textures/defect0.png")
 		var sticker = sticker_scene.instantiate()
-		get_node("/root/Game/Effects").add_child(sticker)
+		if get_node("/root/Game/Effects") != null:
+			get_node("/root/Game/Effects").add_child(sticker)
 	
 
 func _on_mouse_shape_entered(_shape_idx: int) -> void:
