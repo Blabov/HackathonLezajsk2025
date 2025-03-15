@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	if player_health <= 0:
 		GlobalVariables.high_score = GlobalVariables.score
 		$GameOverScreen.visible = true
-	GlobalVariables.speed = 100 + (100 * (0.30 * floor(GlobalVariables.score/10)))
+	GlobalVariables.speed = 100 + (100 * (0.20 * floor(GlobalVariables.score/10)))
 	update_score_visibility()
 
 func _on_bottle_timer_timeout() -> void:
