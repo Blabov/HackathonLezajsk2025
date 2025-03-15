@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://v4b3pcp02m25"]
+[gd_scene load_steps=6 format=3 uid="uid://v4b3pcp02m25"]
 
 [ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_s1gbd"]
 [ext_resource type="FontFile" uid="uid://vamh2ih7yquc" path="res://fonts/dogicapixel.ttf" id="2_mada7"]
 [ext_resource type="Texture2D" uid="uid://lhrvk1017p4c" path="res://textures/piwo_logo.png" id="4_5b0vy"]
 [ext_resource type="AudioStream" uid="uid://cuh3hhkd822fd" path="res://audio/jarzebina.MP3" id="4_ny0wb"]
+[ext_resource type="Texture2D" uid="uid://d3uvdvy6yvpsd" path="res://textures/piwo_napis.png" id="5_akl30"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -32,7 +33,7 @@ offset_top = -196.0
 offset_right = 346.0
 grow_vertical = 0
 theme_override_constants/margin_left = 100
-theme_override_constants/margin_bottom = 300
+theme_override_constants/margin_bottom = 280
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -63,9 +64,14 @@ volume_db = 3.0
 autoplay = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(263, 290)
+position = Vector2(263, 313)
 scale = Vector2(8, 8)
 texture = ExtResource("4_5b0vy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1143, 241)
+scale = Vector2(12, 12)
+texture = ExtResource("5_akl30")
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
