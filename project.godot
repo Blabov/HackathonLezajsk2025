@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Hackathon2025Lezajsk"
+config/name="Polski Instytut Wywarów Odurzających"
 run/main_scene="res://scenes/game_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://textures/piwo_logo.png"
+boot_splash/fullsize=false
+config/icon="res://textures/piwo_logo.png"
+config/windows_native_icon="res://piwo_logo.ico"
 
 [autoload]
 
