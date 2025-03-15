@@ -56,12 +56,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func break_with_chance(chance) -> void:
-	if rng.randf() < chance:
+	if rng.randf() < chance and get_node("/root/Game/Effects") != null:
 		has_defect = true
 		sprite.texture = load("res://textures/defect0.png")
 		var sticker = sticker_scene.instantiate()
-		if get_node("/root/Game/Effects") != null:
-			get_node("/root/Game/Effects").add_child(sticker)
+		get_node("/root/Game/Effects").add_child(sticker)
 	
 
 func _on_mouse_shape_entered(_shape_idx: int) -> void:
